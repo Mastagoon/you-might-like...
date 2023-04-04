@@ -12,6 +12,6 @@
 		selected === "/books" ? "bg-book-green" :
 		"bg-videogame-red" 
 } transition-all duration-1000 h-screen flex flex-col justify-center relative`}>
-	<Logo className="absolute top-12 left-12"/>
+	<a href="/"><Logo className="absolute top-12 left-12"/></a>
 	<slot />
 </div>
