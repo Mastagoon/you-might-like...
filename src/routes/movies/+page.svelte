@@ -1,9 +1,16 @@
 <script>
 	import { enhance } from '$app/forms';
+  import { slide} from "svelte/transition";
+  import { onMount } from 'svelte';
+
+  let ready = false;
+  onMount(() => ready = true);
+
 	export let form;
 </script>
 
-<div class="mx-auto gap-5 flex flex-col">
+{#if ready}
+	<div in:slide={{duration: 500}} class="mx-auto gap-5 flex flex-col">
 	<h1 class="text-3xl text-white font-bold text-center">List 3 - 5 of your favorite movies</h1>
 		<form method="post" class="flex flex-col gap-5 items-center my-2 text-white" use:enhance={() => {
     return async ({ update }) => {
@@ -26,3 +33,5 @@
 	<p class="text-green-500 text-center">{form?.result}</p>
 {/if}
 </div>
+	
+{/if}
